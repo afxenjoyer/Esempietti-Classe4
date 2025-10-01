@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Esempietti;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,22 +12,50 @@ namespace Esempietti
         public double R { get; set; }
         public double I { get; set; }
 
-        // Formati
-        // 5+3i
-        // 5-3i
-        // 5
-        // 3i
-        // -3i
-        // +5
-        // -5
-        // -5-3i
-        // -5+3i
-        // +5
-        // +5-3i
-        // +5+3i
-        // i
-        // -i
-        // +i
+        public Complesso() { }
+        public Complesso(double reale, double immaginario)
+        {
+            this.R = reale;
+            this.I = immaginario;
+        }
+
+        public static Complesso Add(Complesso c1, Complesso c2)
+        {
+            Complesso cSomma = new Complesso();
+            cSomma.R = c1.R + c2.R;
+            cSomma.I = c1.I + c2.I;
+
+            return cSomma;
+        }
+
+        public static Complesso Sub(Complesso c1, Complesso c2)
+        {
+            Complesso cSottrazione = new Complesso();
+            cSottrazione.R = c1.R - c2.R;
+            cSottrazione.I = c1.I - c2.I;
+
+            return cSottrazione;
+        }
+
+        public static Complesso Mul(Complesso c1, Complesso c2)
+        {
+            Complesso cMoltiplicazione = new Complesso();
+            cMoltiplicazione.R = (c1.R * c2.R) - (c1.I * c2.I);
+            cMoltiplicazione.I = (c1.R * c2.I) + (c1.I * c2.R);
+
+            return cMoltiplicazione;
+        }
+
+        /*
+        public static Complesso.Div(Complesso c1, Complesso c2)
+        {
+            Complesso cDivisione = new Complesso();
+            cDivisione.R = ;
+            cDivisione.I = ;
+
+            return cDivisione;
+        }
+        */
         public static Complesso Parse(string s)
         {
             s = s.Replace(" ", "").ToLower();
@@ -36,15 +65,6 @@ namespace Esempietti
             // Numero con una parte immaginaria
             if (s.EndsWith("i"))
             {
-                // 5+3i
-                // 5-3i
-                // 3i
-                // -3i
-                // -5-3i
-                // -5+3i
-                // +5-3i
-                // +5+3i
-
                 string imagPart = s.Substring(0, s.Length - 1);
                 if (imagPart == "" || imagPart == "+")
                     i = 1;

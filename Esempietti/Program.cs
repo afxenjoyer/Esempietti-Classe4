@@ -4,8 +4,19 @@
     {
         static void Main(string[] args)
         {
-            Complesso c;
+            Complesso c1 = new Complesso(5, 3);
+            Complesso c2 = new Complesso(1, -4);
 
+            Complesso cSomma = Complesso.Add(c1, c2);
+            Console.WriteLine("Addizione {0} {1}", cSomma.R, cSomma.I);
+
+            Complesso cSottrazione = Complesso.Sub(c1, c2);
+            Console.WriteLine("Sottrazione {0} {1}", cSottrazione.R, cSottrazione.I);
+
+            Complesso cMoltiplicazione = Complesso.Mul(c1, c2);
+            Console.WriteLine("Moltiplicazione {0} {1}", cSomma.R, cSomma.I);
+
+            /*
             c = Complesso.Parse("5+3i");
             Console.WriteLine($"{c.R} {c.I}");
             c = Complesso.Parse("5-3i");
@@ -36,6 +47,7 @@
             Console.WriteLine($"{c.R} {c.I}");
             c = Complesso.Parse("+i");
             Console.WriteLine($"{c.R} {c.I}");
+            */
 
             return;
 
