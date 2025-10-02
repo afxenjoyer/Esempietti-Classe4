@@ -16,6 +16,9 @@
             Complesso cMoltiplicazione = Complesso.Mul(c1, c2);
             Console.WriteLine("Moltiplicazione {0} {1}", cSomma.R, cSomma.I);
 
+            Complesso cDivisione = Complesso.Div(c1, c2);
+            Console.WriteLine("Divisione {0} {1}", cDivisione.R, cDivisione.I);
+
             /*
             c = Complesso.Parse("5+3i");
             Console.WriteLine($"{c.R} {c.I}");
@@ -49,8 +52,7 @@
             Console.WriteLine($"{c.R} {c.I}");
             */
 
-            return;
-
+            /*
             Console.WriteLine("Inserisci il lato (un numero positivo)");
             float lato;
             
@@ -77,9 +79,7 @@
                 Console.WriteLine("Il rettangolo in realtà è un quadrato");
             else
                 Console.WriteLine("CIAO");
-
+            */
         }
-
-
     }
 }

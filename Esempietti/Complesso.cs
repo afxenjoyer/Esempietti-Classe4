@@ -46,16 +46,19 @@ namespace Esempietti
             return cMoltiplicazione;
         }
 
-        /*
-        public static Complesso.Div(Complesso c1, Complesso c2)
+        
+        public static Complesso Div(Complesso c1, Complesso c2)
         {
             Complesso cDivisione = new Complesso();
-            cDivisione.R = ;
-            cDivisione.I = ;
+            if (c2.I < 0)
+            {
+                cDivisione.R = c1.R * (c2.R - c2.I) / (c2.R + c2.I);
+                cDivisione.I = c1.I * (c2.R - c2.I) / (c2.R + c2.I);
+            }
 
             return cDivisione;
         }
-        */
+        
         public static Complesso Parse(string s)
         {
             s = s.Replace(" ", "").ToLower();
